@@ -1,4 +1,47 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# ArtGuard
+
+> Safeguarding Digital Art Authenticity with AI-Powered NFT Protection
+
+ArtGuard is an intelligent browser extension that empowers digital artists and NFT creators with real-time plagiarism detection. Using advanced AI technology, we ensure the originality and integrity of digital art in the blockchain ecosystem.
+
+## The Problem It Solves
+
+In the rapidly growing NFT marketplace, digital art plagiarism has become a significant concern. ArtGuard addresses this challenge by:
+
+- **Protecting Creators**: Artists can verify their work's uniqueness before minting NFTs, preventing accidental duplications and protecting their intellectual property.
+
+- **Safeguarding Collectors**: Buyers can confidently invest in NFTs knowing they're purchasing authentic, original artwork rather than copied or derivative pieces.
+
+- **Streamlining Verification**: Our browser extension integrates seamlessly with popular NFT marketplaces, making authenticity checks a natural part of the browsing and trading experience.
+
+- **Real-time Detection**: Using advanced AI algorithms, ArtGuard performs instant similarity analysis against a vast database of existing digital art and NFTs.
+
+- **Blockchain Integration**: Direct integration with blockchain technology ensures transparent and reliable verification of digital art ownership and authenticity.
+
+This project is built with [Plasmo extension](https://docs.plasmo.com/) framework.
+
+## Technologies Used
+React, TypeScript, Web3.js, WebSocket, Plasmo Framework, Python, TensorFlow, ArrayBuffer API, Chrome Extension APIs, Blockchain Technology, IPFS, NFT Standards (ERC-721/ERC-1155), Error Boundary Components, CORS Middleware
+
+## Technical Challenges and Solutions
+
+During the development of ArtGuard, we encountered several significant technical challenges:
+
+### 1. AVIF Image Format Detection
+- **Challenge**: Implementing accurate detection of AVIF image format in browser extensions was complex due to limited browser API support.
+- **Solution**: We developed a custom image format detection system using ArrayBuffer analysis and magic number verification, ensuring reliable AVIF detection across different browsers.
+
+### 2. CORS and Backend Integration
+- **Challenge**: Cross-Origin Resource Sharing (CORS) issues emerged when our extension tried to communicate with the backend server for image analysis.
+- **Solution**: Implemented proper CORS headers configuration on the backend and utilized proxy middleware in development. We also added robust error handling for CORS-related failures.
+
+### 3. Real-time Updates with WebSocket
+- **Challenge**: Maintaining stable WebSocket connections for real-time plagiarism detection updates while handling connection drops and browser tab lifecycle.
+- **Solution**: Implemented an automatic reconnection mechanism with exponential backoff, and added connection health monitoring to ensure reliable real-time updates.
+
+### 4. React Component Error Handling
+- **Challenge**: Preventing the entire extension from crashing when individual components encountered errors.
+- **Solution**: Developed custom error boundary components and implemented graceful fallback UI, ensuring the extension remains functional even when specific features encounter issues.
 
 ## Getting Started
 

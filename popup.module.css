@@ -1,0 +1,449 @@
+/* popup.module.css */
+/* Use variables for easier theming */
+:root {
+    --primary-color: #1976d2; /* Material UI Blue */
+    --primary-dark: #1565c0;
+    --secondary-color: #f0f4f8; /* Light blue/gray for background */
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-light: #fff;
+    --border-color: #ddd;
+    --border-dashed: #ccc;
+    --alert-info-bg: #e3f2fd; /* Light blue */
+    --alert-info-text: #0d47a1; /* Dark blue */
+    --disabled-bg: #e0e0e0;
+    --disabled-text: #9e9e9e;
+    --button-border-radius: 4px;
+    --card-border-radius: 8px;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .appContainer {
+    font-family: var(--font-family);
+    width: 380px; /* Adjust width as needed */
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+    /* Remove overflow settings if content fits */
+  }
+  
+  /* --- App Bar --- */
+  .appBar {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .titleContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+  }
+  
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .walletInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .address {
+    font-size: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: var(--button-border-radius);
+  }
+  
+  .disconnectButton,
+  .connectButton { /* Style connect button similarly if needed */
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 4px 8px;
+    border-radius: var(--button-border-radius);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .disconnectButton:hover,
+  .connectButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* --- Main Content --- */
+  .content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between card and alert */
+  }
+  
+  /* --- Card --- */
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .cardTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+  
+  .cardDescription {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0 0 20px 0;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* --- Input Method Selector --- */
+  .inputMethodSelector {
+    margin-bottom: 20px;
+  }
+  
+  .sourceLabel {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  
+  .radioGroup {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between radio buttons */
+  }
+  
+  .radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .radioInput {
+    cursor: pointer;
+    /* Add custom styling or use default */
+    accent-color: var(--primary-color); /* Modern browsers */
+  }
+  
+  /* --- Upload Area --- */
+  .uploadArea {
+    border: 2px dashed var(--border-dashed);
+    border-radius: var(--card-border-radius);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+  }
+  
+  .uploadArea:hover {
+    border-color: var(--primary-dark);
+  }
+  
+  .uploadText {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 8px 0;
+  }
+  
+  .chooseFileButton {
+    display: inline-block; /* Allow padding and styling */
+    background-color: #fff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 6px 12px;
+    border-radius: var(--button-border-radius);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .chooseFileButton:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .fileNameDisplay {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      background-color: #eee;
+      padding: 8px;
+      border-radius: 4px;
+      word-break: break-all;
+  }
+  
+  /* --- URL Input Area --- */
+  .urlInputContainer {
+    margin-bottom: 20px;
+  }
+  
+  .urlInput {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--button-border-radius);
+    box-sizing: border-box; /* Include padding in width */
+    background-color: #fafafa;
+  }
+  .urlInput:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+  }
+  
+  /* --- Scan Button --- */
+  .scanButton {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--button-border-radius);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .scanButton:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+  }
+  
+  .scanButton:disabled {
+    background-color: var(--disabled-bg);
+    color: var(--disabled-text);
+    cursor: not-allowed;
+  }
+  
+  /* --- Info Alert --- */
+  .infoAlert {
+    background-color: var(--alert-info-bg);
+    color: var(--alert-info-text);
+    padding: 10px 15px;
+    border-radius: var(--card-border-radius);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* --- Icon Placeholders (adjust size/color) --- */
+  .iconPlaceholder {
+    font-size: 1.1em; /* Adjust as needed */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Add this to popup.module.css */
+.errorAlert {
+    background-color: #ffebed; /* Light red */
+    color: #c62828; /* Dark red */
+    border: 1px solid #ffcdd2; /* Optional border */
+  }
+  /* Add to popup.module.css */
+.providerList {
+    display: flex;
+    flex-direction: column; /* Or 'row' */
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-border-radius);
+    background-color: #fff;
+}
+
+.providerButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    background-color: #fff;
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    text-align: left;
+    font-size: 0.9rem;
+    width: 100%; /* Make buttons full width */
+}
+
+.providerButton:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
+}
+
+.providerButton img {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px; /* Optional: round icons slightly */
+}
+
+.providerButton span {
+    font-weight: 500;
+}
+
+.noProviders {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-border-radius);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Optional: Adjust app bar connect/disconnect buttons if needed */
+.appBarButton {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 4px 8px;
+    border-radius: var(--button-border-radius);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background-color 0.2s ease;
+}
+.appBarButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.appBarButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.walletInfo { /* Copied from previous CSS */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.address { /* Copied from previous CSS */
+  font-size: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: var(--button-border-radius);
+}
+.disconnectButton { /* Style for disconnect button */
+    composes: appBarButton; /* Inherit base styles */
+    /* Add specific disconnect styles if needed */
+}
+.connectButton { /* Style for single connect button */
+     composes: appBarButton; /* Inherit base styles */
+     /* Add specific connect styles if needed */
+}
+/* Add to popup.module.css */
+
+/* ... (keep all existing styles) ... */
+
+.resultsCard {
+    margin-top: 15px; /* Add space above results */
+    padding: 15px;
+  }
+  
+  .resultsTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    text-align: center;
+    color: var(--text-primary);
+  }
+  
+  .resultsList {
+    max-height: 250px; /* Limit height and make scrollable */
+    overflow-y: auto;
+    padding-right: 5px; /* Space for scrollbar */
+  }
+  
+  .resultItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .resultItem:last-child {
+    border-bottom: none;
+  }
+  
+  .resultThumbnail {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+  
+  .resultDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1;
+    min-width: 0; /* Allow text to wrap/truncate */
+  }
+  
+  .resultSimilarity {
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .resultSimilarity .iconPlaceholder { /* Style icons within similarity text */
+      font-size: 1em;
+  }
+  
+  .resultLink {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .resultLink:hover {
+    text-decoration: underline;
+  }
+  
+  /* Ensure error alert uses distinct style if needed */
+  .errorAlert {
+    background-color: #ffebed;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+  }
